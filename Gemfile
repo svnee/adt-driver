@@ -1,9 +1,15 @@
-# frozen_string_literal: true
-
+gemspec
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in adt-driver.gemspec
-gemspec
-
-gem 'rake', '~> 12.0'
-gem 'rspec', '~> 3.0'
+group :development, :test do
+  gem 'awesome_print'
+  gem 'byebug'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'irb'
+  gem 'rake'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rspec'
+end
