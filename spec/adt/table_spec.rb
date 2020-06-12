@@ -17,4 +17,18 @@ RSpec.describe ADT::Table do
       end
     end
   end
+
+  describe '#close' do
+    before { table.close }
+
+    it 'closes the io' do
+      expect { table.record(1) }.to raise_error(IOError)
+    end
+  end
+
+  describe '#record' do
+    it 'return an instance of ADT::Record' do
+      expect(table.record(1)).to be_a(ADT::Record)
+    end
+  end
 end
