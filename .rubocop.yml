@@ -1,167 +1,143 @@
-require:
-  - rubocop-rspec
-  - rubocop-performance
-
-Layout/ParameterAlignment:
+--- 
+Layout/CaseIndentation: 
+  Enabled: false
+Layout/ElseAlignment: 
+  Enabled: false
+Layout/EmptyLinesAroundAttributeAccessor: 
   Enabled: true
-  EnforcedStyle: with_fixed_indentation
-
-Layout/CaseIndentation:
+Layout/EmptyLinesAroundBlockBody: 
   Enabled: false
-
-Layout/ElseAlignment:
-  Enabled: false
-
-Layout/EmptyLinesAroundBlockBody:
-  Enabled: false
-
-Layout/EndAlignment:
+Layout/EndAlignment: 
   Enabled: true
   EnforcedStyleAlignWith: start_of_line
-
-Layout/FirstArrayElementIndentation:
+Layout/FirstArrayElementIndentation: 
   EnforcedStyle: consistent
-
-Layout/FirstHashElementIndentation:
+Layout/FirstHashElementIndentation: 
   EnforcedStyle: consistent
-
-Layout/MultilineHashBraceLayout:
+Layout/LineLength: 
+  Enabled: false
+Layout/MultilineHashBraceLayout: 
   Enabled: true
   EnforcedStyle: symmetrical
-
-Layout/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation: 
   EnforcedStyle: indented
-
-Layout/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation: 
   EnforcedStyle: indented
-
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-
-Layout/SpaceInLambdaLiteral:
+Layout/ParameterAlignment: 
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+Layout/SpaceAroundMethodCallOperator: 
+  Enabled: true
+Layout/SpaceInLambdaLiteral: 
   EnforcedStyle: require_space
-
-Layout/TrailingWhitespace:
+Layout/SpaceInsideHashLiteralBraces: 
+  EnforcedStyle: no_space
+Layout/TrailingWhitespace: 
   Enabled: false
-
-Lint/AmbiguousBlockAssociation:
+Lint/AmbiguousBlockAssociation: 
   Enabled: false
-
-Lint/AssignmentInCondition:
+Lint/AssignmentInCondition: 
   Enabled: false
-
-Lint/RedundantSplatExpansion:
+Lint/DeprecatedOpenSSLConstant: 
   Enabled: false
-
-Metrics/AbcSize:
+Lint/MixedRegexpCaptureTypes: 
   Enabled: false
-
-Metrics/BlockLength:
+Lint/RaiseException: 
+  Enabled: false
+Lint/RedundantSplatExpansion: 
+  Enabled: false
+Lint/StructNewOverride: 
+  Enabled: false
+Metrics/AbcSize: 
+  Enabled: false
+Metrics/BlockLength: 
   CountComments: false
   Enabled: true
-  Exclude:
+  Exclude: 
     - spec/**/*_spec.rb
   Max: 100
-
-Metrics/ClassLength:
+Metrics/ClassLength: 
   Enabled: false
-
-Metrics/CyclomaticComplexity:
+Metrics/CyclomaticComplexity: 
   Max: 10
-
-Metrics/LineLength:
+Metrics/MethodLength: 
   Enabled: false
-
-Metrics/MethodLength:
+Metrics/ModuleLength: 
   Enabled: false
-
-Metrics/ModuleLength:
-  Enabled: false
-
-Metrics/PerceivedComplexity:
+Metrics/PerceivedComplexity: 
   Max: 10
-
-Naming/FileName:
+Naming/FileName: 
   Enabled: false
-
-Naming/MethodParameterName:
+Naming/MethodParameterName: 
   Enabled: false
-
-RSpec/AnyInstance:
+RSpec/AnyInstance: 
   Enabled: false
-
-RSpec/DescribeClass:
-  Exclude:
+RSpec/DescribeClass: 
+  Exclude: 
     - spec/requests/**/*_spec.rb
-
-RSpec/DescribedClass:
+RSpec/DescribeMethod: 
   Enabled: false
-
-RSpec/DescribeMethod:
+RSpec/DescribedClass: 
   Enabled: false
-
-RSpec/ExampleLength:
-  Max: 25
-  Exclude:
+RSpec/ExampleLength: 
+  Exclude: 
     - spec/workers/**/*_spec.rb
-
-RSpec/ImplicitSubject:
+  Max: 25
+RSpec/ImplicitSubject: 
   Enabled: false
-
-RSpec/LetSetup:
+RSpec/LetSetup: 
   Enabled: false
-
-RSpec/MessageSpies:
+RSpec/MessageSpies: 
   Enabled: false
-
-RSpec/MultipleExpectations:
+RSpec/MultipleExpectations: 
   Enabled: false
-
-RSpec/NestedGroups:
+RSpec/NestedGroups: 
   Max: 5
-
-RSpec/NotToNot:
+RSpec/NotToNot: 
   EnforcedStyle: to_not
-
-Security/YAMLLoad:
-  Exclude:
+Security/YAMLLoad: 
+  Exclude: 
     - app/models/entity.rb
-
-Style/Alias:
+Style/Alias: 
   Enabled: false
-
-Style/AsciiComments:
+Style/AsciiComments: 
   Enabled: false
-
-Style/ClassAndModuleChildren:
+Style/ClassAndModuleChildren: 
   Enabled: false
-
-Style/Documentation:
+Style/Documentation: 
   Enabled: false
-
-Style/EmptyMethod:
+Style/EmptyMethod: 
   EnforcedStyle: expanded
-
-Style/FormatStringToken:
+Style/ExponentialNotation: 
+  Enabled: true
+Style/FormatStringToken: 
   Enabled: false
-
-Style/FrozenStringLiteralComment:
+Style/FrozenStringLiteralComment: 
   Enabled: false
-
-Style/Lambda:
+Style/HashEachMethods: 
+  Enabled: true
+Style/HashTransformKeys: 
+  Enabled: true
+Style/HashTransformValues: 
+  Enabled: true
+Style/Lambda: 
   Enabled: false
-
-Style/NumericPredicate:
+Style/NumericPredicate: 
   Enabled: false
-
-Style/PerlBackrefs:
+Style/PerlBackrefs: 
   Enabled: false
-
-Style/RescueModifier:
+Style/RedundantRegexpCharacterClass: 
+  Enabled: true
+Style/RedundantRegexpEscape: 
+  Enabled: true
+Style/RescueModifier: 
   Enabled: false
-
-Style/SafeNavigation:
+Style/SafeNavigation: 
   Enabled: false
-
-Style/SymbolArray:
+Style/SlicingWithRange: 
+  Enabled: true
+Style/SymbolArray: 
   EnforcedStyle: brackets
+require: 
+  - rubocop-rspec
+  - rubocop-performance
