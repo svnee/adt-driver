@@ -57,11 +57,18 @@ module ADT
       @columns ||= build_columns
     end
 
+    # @return [String]
+    def filename
+      return unless @data.respond_to?(:path)
+
+      File.basename(@data.path)
+    end
+
     private
 
     def build_columns # :nodoc:
       safe_seek do
-        #skip past header to get to column information
+        # skip past header to get to column information
         @data.seek(ADT_HEADER_SIZE)
         # column names are the first 128 bytes and column info takes up the last 72 bytes.  
         # byte 130 contains a 16-bit column type
@@ -69,9 +76,7 @@ module ADT
         @columns = []
         column_count.times do
           name, type, length = @data.read(200).unpack('A128 x S x4 S')
-          if length > 0
-            @columns << ADT::Column.new(name.strip, type, length)
-          end
+          @columns << ADT::Column.new(name.strip, type, length) if length > 0
         end
         # Reset the column count in case any were skipped
         @column_count = @columns.size

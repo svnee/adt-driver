@@ -4,6 +4,7 @@ begin
   require 'simplecov'
   SimpleCov.start
 rescue LoadError
+  puts "Simplecov can't be loaded"
 end
 
 require 'bundler/setup'

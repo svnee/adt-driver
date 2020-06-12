@@ -31,4 +31,10 @@ RSpec.describe ADT::Table do
       expect(table.record(1)).to be_a(ADT::Record)
     end
   end
+
+  describe '#filename' do
+    it 'returns the filename of the table' do
+      expect(table.filename).to eq('ac_ahisto.adt')
+    end
+  end
 end
