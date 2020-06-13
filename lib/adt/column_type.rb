@@ -40,7 +40,7 @@ module ADT
 
     class Double < Base
       def type_cast(value, _table)
-        value.unpack1('D') <= 0.001 ? 0.0 : value.unpack1('D')
+        value.unpack1('D') <= 0.001 && value.unpack1('D') >= -0.001 ? 0.0 : value.unpack1('D')
       end
 
       def flag
@@ -99,7 +99,7 @@ module ADT
 
     class CurDouble < Base
       def type_cast(value, _table)
-        value.unpack('D').dig(0) < 0.001 ? nil : value.unpack('D').dig(0)
+        value.unpack1('D') <= 0.001 && value.unpack1('D') >= -0.001 ? nil : value.unpack('D').dig(0)
       end
 
       def flag
