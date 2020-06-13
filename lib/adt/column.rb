@@ -15,8 +15,11 @@ module ADT
       3 => ADT::ColumnType::Date,
       4 => ADT::ColumnType::String,
       6 => ADT::ColumnType::Binary,
+      10 => ADT::ColumnType::Double,
       11 => ADT::ColumnType::Integer,
+      12 => ADT::ColumnType::ShortInteger,
       14 => ADT::ColumnType::DateTime,
+      15 => ADT::ColumnType::Integer, # In reality an "autoinc" but we don't deal with that
       17 => ADT::ColumnType::CurDouble
     }
     TYPE_CAST_CLASS.default = ADT::ColumnType::String

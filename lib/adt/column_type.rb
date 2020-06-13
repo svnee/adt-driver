@@ -37,11 +37,32 @@ module ADT
       end
     end
 
+    class Double < Base
+      def type_cast(value, _table)
+        value.unpack1("D") <= 0.001 ? 0.0 : value.unpack1("D")
+      end
+
+      def flag
+        'D'
+      end
+    end
+
     class Integer < Base
       def type_cast(value, _table)
         return nil if value.strip.empty?
 
         value.unpack('L').dig(0).to_i == 2_147_483_648 ? nil : value.unpack('L').dig(0).to_i
+      end
+
+      def flag
+        'i'
+      end
+    end
+
+    class ShortInteger < Base
+      def type_cast(value, _table)
+        return nil if value.strip.empty?
+        value.unpack('S_').dig(0).to_i == 2_147_483_648 ? nil : value.unpack('S_').dig(0).to_i
       end
 
       def flag
