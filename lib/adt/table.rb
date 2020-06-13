@@ -79,7 +79,7 @@ module ADT
     #
     # @return [String]
     def column_names
-      columns.map(&:name)
+      columns.map(&:underscored_name)
     end
 
     # @return [String]
