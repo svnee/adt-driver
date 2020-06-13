@@ -26,7 +26,7 @@ module ADT
     # @param [String] data Path to the adt file
     def initialize(data)
       @data = open_data(data)
-      @memory = open_data(data.gsub('.adt', '.adm')) if File.exists?(data.gsub('.adt', '.adm'))
+      @memory = open_data(data.gsub('.adt', '.adm')) if File.exist?(data.gsub('.adt', '.adm'))
       yield self if block_given?
     end
 
@@ -38,7 +38,7 @@ module ADT
     end
 
     # @return [TrueClass, FalseClass]
-    def has_memory?
+    def memory?
       !@memory.nil?
     end
 
@@ -81,9 +81,7 @@ module ADT
       File.basename(@data.path)
     end
 
-    def data
-      @data
-    end
+    attr_reader :data
 
     def name
       filename.gsub('.adt', '')

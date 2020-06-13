@@ -26,8 +26,9 @@ module ADT
 
     class Binary < Base
       def type_cast(value, table)
-        raise MemoryError, '.adm file is missing' unless table.has_memory?
-        offset, length = value.unpack("I*")
+        raise MemoryError, '.adm file is missing' unless table.memory?
+
+        offset, length = value.unpack('I*')
         table.memory.seek(offset * 8)
         table.memory.read(length)
       end
@@ -39,7 +40,7 @@ module ADT
 
     class Double < Base
       def type_cast(value, _table)
-        value.unpack1("D") <= 0.001 ? 0.0 : value.unpack1("D")
+        value.unpack1('D') <= 0.001 ? 0.0 : value.unpack1('D')
       end
 
       def flag
@@ -62,6 +63,7 @@ module ADT
     class ShortInteger < Base
       def type_cast(value, _table)
         return nil if value.strip.empty?
+
         value.unpack('S_').dig(0).to_i == 2_147_483_648 ? nil : value.unpack('S_').dig(0).to_i
       end
 

@@ -13,4 +13,3 @@ require 'adt'
 
 require 'pry'
 Pry.start
-

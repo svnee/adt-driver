@@ -21,7 +21,7 @@ module ADT
       14 => ADT::ColumnType::DateTime,
       15 => ADT::ColumnType::Integer, # In reality an "autoinc" but we don't deal with that
       17 => ADT::ColumnType::CurDouble
-    }
+    }.freeze
     TYPE_CAST_CLASS.default = ADT::ColumnType::String
     TYPE_CAST_CLASS.freeze
 
