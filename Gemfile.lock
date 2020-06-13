@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    adt (0.1.0)
+    adt-driver (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -91,7 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  adt!
+  adt-driver!
   awesome_print
   byebug
   guard

@@ -3,7 +3,7 @@
 require_relative 'lib/adt/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'adt'
+  spec.name          = 'adt-driver'
   spec.version       = ADT::VERSION
   spec.authors       = ['Sven Clement']
   spec.email         = ['clement@clement-weyer.lu']
