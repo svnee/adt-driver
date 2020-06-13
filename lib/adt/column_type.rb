@@ -30,7 +30,8 @@ module ADT
 
         offset, length = value.unpack('I*')
         table.memory.seek(offset * 8)
-        table.memory.read(length)
+        val = table.memory.read(length)
+        val.force_encoding('UTF-8').encode('UTF-8', undef: :replace, invalid: :replace)
       end
 
       def flag
