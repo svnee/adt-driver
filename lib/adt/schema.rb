@@ -6,7 +6,7 @@ module ADT
     OTHER_DATA_TYPES = {
       1 => ':boolean',
       3 => ':date',
-      6 => ':text',
+      6 => ':binary',
       10 => ':decimal, precision: 6',
       11 => ':integer',
       12 => ':integer',
@@ -65,14 +65,14 @@ module ADT
 
     # ActiveRecord schema definition
     #
-    # @param [DBF::Column]
+    # @param [ADT::Column]
     # @return [String]
     def activerecord_schema_definition(column)
       "\"#{column.underscored_name}\", #{schema_data_type(column)}\n"
     end
 
     def schema_data_type(column) # :nodoc:
-      case column.type
+      case column.type.to_s
       when *%w[1 3 6 10 11 12 14 15 17]
         OTHER_DATA_TYPES[column.type]
       else
