@@ -47,6 +47,14 @@ module ADT
       @data.closed?
     end
 
+    # Calls block once for each record in the table. The record may be nil
+    # if the record has been marked as deleted.
+    #
+    # @yield [nil, ADT::Record]
+    def each
+      record_count.times { |i| yield record(i) }
+    end
+
     # Retrieve a record by index number.
     # The record will be nil if it has been deleted, but not yet pruned from
     # the database.
