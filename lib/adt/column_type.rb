@@ -31,7 +31,7 @@ module ADT
         offset, length = value.unpack('I*')
         table.memory.seek(offset * 8)
         val = table.memory.read(length)
-        val.force_encoding('UTF-8').encode('UTF-8', undef: :replace, invalid: :replace)
+        val.encode("UTF-8", 'iso-8859-1', undef: :replace, invalid: :replace)
       end
 
       def flag
@@ -111,7 +111,7 @@ module ADT
     class String < Base
       def type_cast(value, _table)
         value = value.strip
-        value.force_encoding('UTF-8').encode('UTF-8', undef: :replace, invalid: :replace)
+        value.encode("UTF-8", 'iso-8859-1', undef: :replace, invalid: :replace)
       end
       
       def flag
