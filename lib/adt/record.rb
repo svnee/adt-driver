@@ -23,7 +23,7 @@ module ADT
     #
     # @return [Array]
     def to_a
-      @columns.map { |column| attributes[column.name] }
+      @columns.map { |column| attributes[column.underscored_name] }
     end
 
     # Do all search parameters match?
@@ -57,7 +57,7 @@ module ADT
     private
 
     def attribute_map # :nodoc:
-      @columns.map { |column| [column.name, init_attribute(column)] }
+      @columns.map { |column| [column.underscored_name, init_attribute(column)] }
     end
 
     def get_data(column) # :nodoc:
