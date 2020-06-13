@@ -14,6 +14,8 @@ module ADT
     def_delegator :header, :record_length
     def_delegator :header, :column_count
 
+    attr_reader :memory
+
     # Opens a ADT::Table
     # Examples:
     #   # working with a file stored on the filesystem
@@ -22,6 +24,7 @@ module ADT
     # @param [String] data Path to the adt file
     def initialize(data)
       @data = open_data(data)
+      @memory = open_data(data.gsub('.adt', '.adm')) if File.exists?(data.gsub('.adt', '.adm'))
       yield self if block_given?
     end
 
@@ -30,6 +33,11 @@ module ADT
     # @return [TrueClass, FalseClass]
     def close
       @data.close
+    end
+
+    # @return [TrueClass, FalseClass]
+    def has_memory?
+      !@memory.nil?
     end
 
     # @return [TrueClass, FalseClass]
@@ -47,7 +55,7 @@ module ADT
       seek_to_record(index)
       return nil if deleted_record?
 
-      ADT::Record.new(@data.read(record_length), columns)
+      ADT::Record.new(@data.read(record_length), columns, self)
     end
 
     # All columns
@@ -69,6 +77,10 @@ module ADT
       return unless @data.respond_to?(:path)
 
       File.basename(@data.path)
+    end
+
+    def data
+      @data
     end
 
     private

@@ -1,13 +1,14 @@
 module ADT
   # An instance of ADT::Record represents a row in the ADT file
   class Record
-    # Initialize a new DBF::Record
+    # Initialize a new ADT::Record
     #
     # @data [String, StringIO] data
     # @columns [Column]
-    def initialize(data, columns)
+    def initialize(data, columns, table)
       @data = ::StringIO.new(data)
-      @data.seek(4) # We don't know what the first 5 bytes are
+      @data.seek(4) # We don't know what the first 4 bytes are
+      @table = table
       @columns = columns
     end
 
@@ -65,7 +66,7 @@ module ADT
 
     def init_attribute(column) # :nodoc:
       value = get_data(column)
-      column.type_cast(value)
+      column.type_cast(value, @table)
     end
 
     def method_missing(method, *args) # :nodoc:

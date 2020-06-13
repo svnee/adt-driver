@@ -8,11 +8,13 @@ module ADT
     attr_reader :name, :type, :length
 
     def_delegator :type_cast_class, :type_cast
-
+    # in use for SAGE BOB50
+    # [1, 3, 4, 6, 10, 11, 12, 14, 15, 17]
     TYPE_CAST_CLASS = {
       1 => ADT::ColumnType::Boolean,
       3 => ADT::ColumnType::Date,
       4 => ADT::ColumnType::String,
+      6 => ADT::ColumnType::Binary,
       11 => ADT::ColumnType::Integer,
       14 => ADT::ColumnType::DateTime,
       17 => ADT::ColumnType::CurDouble
