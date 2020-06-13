@@ -12,6 +12,8 @@ module ADT
 end
 
 require 'adt/version'
+require 'adt/schema'
+require 'adt/rails'
 require 'adt/table'
 require 'adt/header'
 require 'adt/column_type'

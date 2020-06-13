@@ -56,6 +56,10 @@ module ADT
       {name: name, type: type, length: length}
     end
 
+    def downcase
+      name.downcase
+    end
+
     # Underscored name
     #
     # This is the column name converted to underscore format.

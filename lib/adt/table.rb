@@ -6,6 +6,8 @@ module ADT
   # methods for enumerating and searching the records.
   class Table
     extend Forwardable
+    include ::ADT::Schema
+    include ::ADT::Rails
 
     ADT_HEADER_SIZE = 400
 
@@ -81,6 +83,10 @@ module ADT
 
     def data
       @data
+    end
+
+    def name
+      filename.gsub('.adt', '')
     end
 
     private
