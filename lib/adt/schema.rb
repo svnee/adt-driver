@@ -51,7 +51,7 @@ module ADT
 
     def activerecord_schema(_table_only = false) # :nodoc:
       s = "ActiveRecord::Schema.define do\n"
-      s << "  create_table \"#{name}\" #{'{id: false}' if columns.map(&:downcase).include?('id')} do |t|\n"
+      s << "  create_table \"#{name}\"#{', {id: false}' if columns.map(&:downcase).include?('id')} do |t|\n"
       columns.each do |column|
         s << "    t.column #{activerecord_schema_definition(column)}"
       end
