@@ -14,6 +14,3 @@ require 'adt'
 require 'pry'
 Pry.start
 
-table = ADT::Table.new '/Users/depute/code/adt-driver/spec/fixtures/ac_ahisto.adt'
-r = table.record(0)
-puts r
