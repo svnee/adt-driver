@@ -37,4 +37,11 @@ RSpec.describe ADT::Table do
       expect(table.filename).to eq('ac_ahisto.adt')
     end
   end
+
+  describe '#column_names' do
+    it 'returns the column names from the table' do
+      expect(table.column_names[0]).to eq('HID')
+      expect(table.column_names[39]).to eq('HVATMODE')
+    end
+  end
 end

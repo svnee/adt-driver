@@ -57,6 +57,13 @@ module ADT
       @columns ||= build_columns
     end
 
+    # Column names
+    #
+    # @return [String]
+    def column_names
+      columns.map(&:name)
+    end
+
     # @return [String]
     def filename
       return unless @data.respond_to?(:path)
