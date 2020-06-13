@@ -16,7 +16,7 @@ module ADT
       11 => ADT::ColumnType::Integer,
       14 => ADT::ColumnType::DateTime,
       17 => ADT::ColumnType::CurDouble
-    }.freeze
+    }
     TYPE_CAST_CLASS.default = ADT::ColumnType::String
     TYPE_CAST_CLASS.freeze
 
