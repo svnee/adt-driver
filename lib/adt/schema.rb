@@ -81,7 +81,7 @@ module ADT
     end
 
     def string_data_format(column)
-      ":string, :limit => #{column.length}"
+      ":string, :limit => 255" ##{column.length}
     end
   end
 end
