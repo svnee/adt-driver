@@ -7,12 +7,12 @@ module ADT
       1 => ':boolean',
       3 => ':date',
       6 => ':binary',
-      10 => ':decimal, precision: 15, scale: 10',
+      10 => ':decimal, precision: 16, scale: 6',
       11 => ':integer',
       12 => ':integer',
       14 => ':datetime',
       15 => ':integer', # In reality an "autoinc" but we don't deal with that
-      17 => ':decimal, precision: 15, scale: 10'
+      17 => ':decimal, precision: 16, scale: 6'
     }.freeze
 
     # Generate an ActiveRecord::Schema
