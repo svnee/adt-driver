@@ -92,7 +92,7 @@ module ADT
     attr_reader :data
 
     def name
-      filename.gsub('.adt', '')
+      filename.downcase.gsub('.adt', '')
     end
 
     private
